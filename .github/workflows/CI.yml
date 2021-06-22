@@ -22,4 +22,6 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     - name: Build with Maven
+      env:
+          DISCORD_BOT_TOKEN: ${{secrets.DISCORD_BOT_TOKEN}}
       run: mvn -B -ntp package

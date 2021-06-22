@@ -9,9 +9,11 @@ on:
   pull_request:
     branches: [ dev ]
 
+
+
 jobs:
   build:
-
+    timeout-minutes: 1
     runs-on: ubuntu-latest
 
     steps:
@@ -25,3 +27,4 @@ jobs:
       env:
           DISCORD_BOT_TOKEN: ${{secrets.DISCORD_BOT_TOKEN}}
       run: mvn -B -ntp package
+

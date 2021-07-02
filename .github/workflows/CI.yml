@@ -9,9 +9,11 @@ on:
   pull_request:
     branches: [ dev ]
 
+
+
 jobs:
   build:
-
+    timeout-minutes: 1
     runs-on: ubuntu-latest
 
     steps:
@@ -22,4 +24,7 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     - name: Build with Maven
+      env:
+          DISCORD_BOT_TOKEN: ${{secrets.DISCORD_BOT_TOKEN}}
       run: mvn -B -ntp package
+
